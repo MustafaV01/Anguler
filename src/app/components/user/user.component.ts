@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { User } from "src/app/models/User";
 
 @Component({
     selector: `app-user`,
@@ -7,29 +8,28 @@ import { Component } from "@angular/core";
     // template: `<h2> Burghelea Dragos </h2>`
     //cu acesta putem scrie direct html aici dar preferam sa scriem in folder separat
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
+
     // Properties
-    firstName = `Dragos`;
-    lastName = `Burghelea`;
-    age = 24;
-    adres = {
-        street: `Lalelelor`,
-        number: `7`
-    };
+    user!: User;
 
     //Methods
     constructor() {
-        // this.seyHey();
-        console.log(this.age);
-        this.birthdayPlus1()
-        console.log(this.age);
-    };
 
-    seyHey() {
-        console.log(`Helo, my first name is  ${this.firstName} `);
     }
 
-    birthdayPlus1() {
-        this.age += 1
+    ngOnInit() {
+
+        this.user = {
+            firstName: `Dragos`,
+            lastName: `Burghelea`,
+            age: 24,
+            adress: {
+                street: `H. S`,
+                city: `Iasi`,
+                state: `RO`
+            }
+        }
     }
 }
+
